@@ -11,6 +11,8 @@ Logger.INFO = 0
 Logger.WARNING = 1
 Logger.ERROR = 2
 
+Logger.ENABLED = false
+
 Logger.levelsText = {
     [Logger.INFO] = "Info",
     [Logger.WARNING] = "Warning",
@@ -54,14 +56,16 @@ local function print_r(t, name, indent)
 end
 
 local function log(level, input, ...)
-    local levelText = Logger.levelsText[level]
-    local p = ("[GS %s]: " .. input):format(levelText)
+    if Logger.ENABLED then
+        local levelText = Logger.levelsText[level]
+        local p = ("[GS %s]: " .. input):format(levelText)
 
-    if (... ~= nil) then
-        p = print(print_r(..., p))
+        if (... ~= nil) then
+            p = print(print_r(..., p))
+        end
+
+        print(p)
     end
-
-    print(p)
 end
 
 function Logger.info(input, ...)
