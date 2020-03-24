@@ -56,7 +56,6 @@
 
         <!--Warning tooltip-->
         <text name="guidanceSteering_tooltip_trackAlreadyExists" text="Spurname '%s' existiert bereits!"/>
-        <text name="guidanceSteering_tooltip_trackIsNotCreated" text="Fehler beim Speichern. Bitte erstelle oder lade zuerst eine Spur bevor du Sie speicherst!"/>
 
         <!--Settings-->
         <text name="guidanceSteering_setting_showLines" text="Zeige Linien"/>

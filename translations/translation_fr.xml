@@ -57,7 +57,6 @@
 
         <!--Warning tooltip-->
         <text name="guidanceSteering_tooltip_trackAlreadyExists" text="La ligne: %s existe deja!"/>
-        <text name="guidanceSteering_tooltip_trackIsNotCreated" text="Si vous n'avez pas réussi à sauvegarder les données de la ligne, veuillez d'abord créer ou charger une ligne!"/>
 
         <!--Settings-->
         <text name="guidanceSteering_setting_showLines" text="Afficher les lignes"/>
