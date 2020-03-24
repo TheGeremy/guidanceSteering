@@ -28,6 +28,9 @@ end
 function TurningState:onEntry()
     TurningState:superClass().onEntry(self)
 
+    -- On entry transition
+    Logger.info("TurningState: onEntry")
+
     self.turnSegments = {}
     -- Get starting point and build
 end
@@ -35,6 +38,9 @@ end
 ---@see AbstractState#onExit
 function TurningState:onExit()
     TurningState:superClass().onExit(self)
+
+    -- On exit transition
+    Logger.info("TurningState: onExit")
 end
 
 ---@see AbstractState#update

@@ -112,6 +112,7 @@ function GuidanceSteering:onReadStream(streamId, connection)
             track.guidanceData = GuidanceUtil.readGuidanceDataObject(streamId)
 
             self.savedTracks[i] = track
+            Logger.info(i, track)
         end
     end
 end
@@ -162,6 +163,8 @@ end
 ---@param id number
 ---@param data table
 local function _createTrack(self, id, data)
+    Logger.info("Creating track: " .. id, data.name)
+
     if id > GuidanceSteering.MAX_NUM_TRACKS then
         Logger.warning(("Maximum of %s saved tracks reached!"):format(GuidanceSteering.MAX_NUM_TRACKS))
         return
@@ -187,6 +190,7 @@ end
 ---@param id number
 ---@param data table
 local function _saveTrack(self, id, data)
+    Logger.info("Saving " .. id .. " with track data: ", data)
     local track = self:getTrack(id)
 
     if track.name ~= data.name then
@@ -221,6 +225,8 @@ function GuidanceSteering:deleteTrack(id)
     local entry = self:getTrack(id)
 
     if entry ~= nil then
+        Logger.info("Deleting track: ", id)
+
         ListUtil.removeElementFromList(self.savedTracks, entry)
 
         -- Call listeners
