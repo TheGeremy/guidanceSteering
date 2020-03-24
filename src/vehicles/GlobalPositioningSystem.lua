@@ -84,6 +84,9 @@ function GlobalPositioningSystem:onRegisterActionEvents(isActiveForInput, isActi
                 insert(self:addActionEvent(spec.actionEvents, InputAction.GS_ENABLE_STEERING, self, GlobalPositioningSystem.actionEventEnableSteering, false, true, false, true, nil, nil, true))
                 insert(self:addActionEvent(spec.actionEvents, InputAction.GS_AXIS_SHIFT, self, GlobalPositioningSystem.actionEventShift, false, true, true, true, nil, nil, true))
                 insert(self:addActionEvent(spec.actionEvents, InputAction.GS_AXIS_REALIGN, self, GlobalPositioningSystem.actionEventRealign, false, true, false, true, nil, nil, true))
+                insert(self:addActionEvent(spec.actionEvents, InputAction.GS_SHOW_LINES, self, GlobalPositioningSystem.actionEventShowLines, false, true, false, true, nil, nil, true))
+                insert(self:addActionEvent(spec.actionEvents, InputAction.GS_ROT90_TRACK, self, GlobalPositioningSystem.actionEventRotate90, false, true, false, true, nil, nil, true))                
+
 
                 for _, actionEventId in ipairs(nonDrawnActionEvents) do
                     g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_VERY_LOW)
@@ -99,6 +102,25 @@ function GlobalPositioningSystem:onRegisterActionEvents(isActiveForInput, isActi
             end
         end
     end
+end
+
+function GlobalPositioningSystem.actionEventRotate90(self, actionName, inputValue, callbackState, isAnalog)
+    local vehicle = g_guidanceSteering.ui:getVehicle()
+    if vehicle ~= nil then
+        local data = vehicle:getGuidanceData()
+
+        if not data.isCreated then
+            self:setWarningMessage(g_i18n:getText("guidanceSteering_tooltip_trackIsNotCreated"))
+            return
+        end
+
+        GlobalPositioningSystem.rotateTrack(vehicle, data)
+    end
+end
+
+function GlobalPositioningSystem.actionEventShowLines(self, actionName, inputValue, callbackState, isAnalog)
+    --Logger.info("actionEventShowLines -> CurrentValue: ", g_guidanceSteering:isShowGuidanceLinesEnabled())
+    g_guidanceSteering:setIsShowGuidanceLinesEnabled(not g_guidanceSteering:isShowGuidanceLinesEnabled())
 end
 
 function GlobalPositioningSystem.initSpecialization()
@@ -660,7 +682,7 @@ function GlobalPositioningSystem:onPostAttachImplement()
 end
 
 function GlobalPositioningSystem.getActualWorkWidth(guidanceNode, object)
-    local width, offset = GuidanceUtil.getMaxWorkAreaWidth(object)
+    local width, offset = GuidanceUtil.getMaxWorkAreaWidth(guidanceNode, object)
 
     for _, implement in pairs(object:getAttachedImplements()) do
         if implement.object ~= nil then
@@ -974,6 +996,11 @@ function GlobalPositioningSystem.actionEventToggleGuidanceSteering(self, actionN
     local spec = self.spec_globalPositioningSystem
 
     spec.lastInputValues.guidanceIsActive = not spec.lastInputValues.guidanceIsActive
+
+    -- chow lines after guidance steering is enabled
+    if not g_guidanceSteering:isShowGuidanceLinesEnabled() and spec.lastInputValues.guidanceIsActive then
+        g_guidanceSteering:setIsShowGuidanceLinesEnabled(true)
+    end
 
     -- Force stop guidance
     spec.lastInputValues.guidanceSteeringIsActive = false
