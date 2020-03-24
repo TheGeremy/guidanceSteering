@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="44">
     <author>Wopster</author>
-    <version>1.0.0.0</version>
+    <version>1.0.0.5</version>
 
     <title>
         <en>Guidance Steering</en>
@@ -10,72 +10,66 @@
         <it>Guidance Steering</it>
         <es>Dirección de Guiado</es>
         <cz>Řízené navádění</cz>
-        <ru>Guidance Steering</ru>
     </title>
 
     <description>
         <en>
             <![CDATA[
-Complete field applications quickly and efficiently with the Guidance Steering mod that helps you accurately setup tracks to work your fields.
-Guidance Steering allows you to use different methods in order to create tracks. The AB point method requires you to setup two points (A and B) in order to calculate the steering angle. The A+heading method simplifies this setup with only forcing you to enter the desired steering angle.
+Guidance Steering.
 
-Make sure to enable Guidance Steering before you're able to enter the menu.
+v1.0.0.5 (the.geremy)
+- After you enable GPS the guidelines will togle to show
 
-In order todo this:
-- Enable Guidance Steering: left ALT + C
-- Show Guidance Steering menu: left CTRL + S
+v1.0.0.4 (the.geremy)
+- based on latest release c4ae9fa (28.8.2019)
+- Initial release.
+- Added and corrected translation into Czech. 
+- Added shortcut to display and hide GPS lines.
+- Now GPS lines are hidden by default.
+- GPS settings now reflect show/hide GPS line setting change
+- Writing to log disabled
+- Added shortcut to rotate track by 90 degrees.
 
-For further info on gameplay please checkout the <a href="https://github.com/stijnwop/guidanceSteering/blob/master/README.md">README</a> on the Github repository.
-]]>
+Shortcuts:
+- Show GPS Menu: left CTRL + S
+- Toggle GPS: left ALT + C
+- Turn on guidance steering: left ALT + X
+- Set track point: left ALT + E
+- Automatic width: left ALT + R
+- Realign track: left ALT + HOME
+- Decrease width of track: left ALT + [-] (Numpad)
+- Increase width of track: left ALT + [+] (Numpad)
+- Shift track left: left ALT + PAGEUP
+- Shift track right: left ALT + PAGEDOWN]]>
         </en>
         <de>
-            <![CDATA[
-Beschleunige deine Feldarbeit mit Hilfe des Guidance Steering Mods, erstelle präzise Spuren und steigere die Effizienz.
-Guidance Steering ermöglicht es Dir, auf verschiedenen Wegen Spuren zu erstellen.
-Die AB Methode benötigt zwei Punkte (A und B) um den Lenkwinkel zu errechnen.
-Die A+Richtung Methode vereinfacht die Erstellung, du kannst den Lenkwinkel direkt eingeben.
-
-Du musst Guidance Steering einschalten, bevor du das Menü aufrufen kannst.
-Zuerst: GPS anschalten (linke ALT + C)
-Danach: GPS-Menü öffnen (linke STRG + S)
-
-Für weitere Informationen, lese dir die <a href="https://github.com/stijnwop/guidanceSteering/blob/master/README.md">README</a> aus dem Github durch.
-]]>
+            <![CDATA[Guidance Steering.]]>
         </de>
         <fr>
-            <![CDATA[
-Accomplissez les travaux dans les champs rapidement et efficacement avec le mod Guidance Steering qui vous aide à configurer avec précision les trajectoires pour travailler vos champs.
-Guidance Steering vous permet d'utiliser différentes méthodes pour créer des trajectoires. La méthode du point AB exige que vous configuriez deux points (A et B) afin de calculer le gisement de de direction. La méthode de cap A+ simplifie cette configuration en vous forçant seulement à entrer la valeur de la direction souhaitée.
-Assurez-vous d'activer la fonction Guidage avant d'entrer dans le menu.
-Pour ce faire :
-- Activer le guidage de la direction : gauche ALT + C
-- Afficher le menu Guidage Direction : à gauche CTRL + S
-
-Pour plus d'informations sur le gameplay, veuillez consulter la page <a href="https://github.com/stijnwop/guidanceSteering/blob/master/README.md">README</a> du dépot Github.
-]]>
+            <![CDATA[Guidage Direction.]]>
         </fr>
         <it>
             <![CDATA[Direzione di guida.]]>
         </it>
         <es>
-            <![CDATA[
-Complete las tareas de campo rápida y eficazmente con el mod Dirección de Guiado que le ayudará con precisión a ajustsar las líneas de trabajo en su campo.
-Dirección de Guiado le permite usar diferentes métodos para crear pistas de trabajo. El método Punto AB necesita que fije 2 puntos (A y B) para ajustar el sentido de orientación. El método A+ simplifica esta configuración con solo forzarlo a ingresar el ángulo de dirección deseado..
-
-Asegúrese de activar la Dirección de Guiado antes de entrar en al menú.
-
-Para hacer esto:
-- Active Dirección de Guiado con: Alt + C
-- Ver menú Dirección de Guiado: CTRL Izq. + S
-
-Para obtener más información sobre el juego, consulte el <a href="https://github.com/stijnwop/guidanceSteering/blob/master/README.md"> README </a> en el repositorio de Github.
-]]>
+            <![CDATA[Dirección de Guiado.]]>
         </es>
         <cz>
             <![CDATA[
 Řízené navádění GPS
 
+v1.0.0.4 (the.geremy)
+- založeno na nejnovější verzi c4ae9fa (28.8.2019)
+- Přidaný a opraven překlad do Češtiny. 
+- Přidaná zkratka k zobrazení a schování čar GPS.
+- Nyní jsou čáry GPS ve výchozím nastavení skryté.
+- Nastavení GPS nyní odráží změnu skrytí nebo zobrazení čar GPS.
+- Vypnut zápis do logu.
+- Přidána zkratka pro otočení dráhy o 90 stupňů.
+
 Klávesové skratky
+- Zskrýt nebo zobrazit čáry: levý ALT + END
+- Otočit dráhu o 90 stupňů: levý ALT + [/] (Numpad)
 - Zobrazit GPS Menu: levé CTRL + S
 - Nastavit bod: levý ALT + E
 - Automatická šířka: levý ALT + R
@@ -86,21 +80,7 @@ Klávesové skratky
 - Rozšíření šířky dráhy: levý ALT + [+] (Numpad)
 - Posun dráhy doleva: levý ALT + PAGEUP
 - Posun dráhy doprava: levý ALT + PAGEDOWN]]>
-        </cz>
-        <ru>
-            <![CDATA[
-С модом Guidance Steering будете выполняйте свои задачи на поле быстрее и эффективнее. С его помощью сможете точно настроить проходы/треки для работы на ваших полях.
-Для создания треков Guidance Steering позволяет использовать разные методы. Точечный метод AB требует установки двух точек (A и B) для расчета угла направления руления. Метод направления A+ упрощает эту настройку, необходимо только ввести желаемый угол направления движения.
-
-Убедитесь, что вы установили GPS в магазине или мастерской, прежде чем сможете войти в меню.
-
-Для этого:
-- Включить навигацию: левый ALT + C
-- Показать меню Guidance Steering: левый CTRL + S
-
-Для получения дополнительной информации об игровом процессе переходите к <a href="https://github.com/stijnwop/guidanceSteering/blob/master/README.md">README</a> в репозитории Github.
-]]>
-        </ru>
+        </cz>  
     </description>
 
     <l10n filenamePrefix="translations/translation"/>
@@ -113,6 +93,8 @@ Klávesové skratky
     </extraSourceFiles>
 
     <actions>
+        <action name="GS_SHOW_LINES" axisType="HALF"/>
+        <action name="GS_ROT90_TRACK" axisType="HALF"/>        
         <action name="GS_TOGGLE" axisType="HALF"/>
         <action name="GS_SHOW_UI" axisType="HALF"/>
         <action name="GS_SETPOINT" axisType="HALF"/>
@@ -124,6 +106,12 @@ Klávesové skratky
     </actions>
 
     <inputBinding>
+        <actionBinding action="GS_ROT90_TRACK">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_KP_divide"/>
+        </actionBinding>
+        <actionBinding action="GS_SHOW_LINES">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_end"/>
+        </actionBinding>        
         <actionBinding action="GS_TOGGLE">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_c"/>
         </actionBinding>
