@@ -54,6 +54,8 @@ end
 function GuidanceSteeringHUD:createBox(hudAtlasPath, x, y)
     local boxWidth, boxHeight = self.speedMeterDisplay:scalePixelToScreenVector(GuidanceSteeringHUD.SIZE.BOX)
     local posX = x - boxWidth * 0.5
+    local shiftDefHudY = 0.016
+    local shiftDefHudX = 0.003
 
     local iconWidth, iconHeight = self.speedMeterDisplay:scalePixelToScreenVector(GuidanceSteeringHUD.SIZE.ICON)
 
@@ -63,17 +65,17 @@ function GuidanceSteeringHUD:createBox(hudAtlasPath, x, y)
     self.stateBox:setVisible(true)
     self.speedMeterDisplay:addChild(boxElement)
 
-    self.steeringIcon = self:createIcon(hudAtlasPath, posX, y, iconWidth, iconHeight, GuidanceSteeringHUD.UV.STEERING_WHEEL_DISABLED)
+    self.steeringIcon = self:createIcon(hudAtlasPath, posX + shiftDefHudX, y + shiftDefHudY, iconWidth, iconHeight, GuidanceSteeringHUD.UV.STEERING_WHEEL_DISABLED)
 
     self.stateBox:addChild(self.steeringIcon)
     self.steeringIcon:setVisible(true)
 
     y = y + iconHeight
 
-    local separator = self:createHorizontalSeparator(g_baseHUDFilename, posX, y)
-    self.stateBox:addChild(separator)
+    --local separator = self:createHorizontalSeparator(g_baseHUDFilename, posX + shiftDefHudX, y + shiftDefHudY)
+    --self.stateBox:addChild(separator)
 
-    self.receiverIcon = self:createIcon(hudAtlasPath, posX, y, iconWidth, iconHeight, GuidanceSteeringHUD.UV.RECEIVER)
+    self.receiverIcon = self:createIcon(hudAtlasPath, posX + shiftDefHudX, y + shiftDefHudY, iconWidth, iconHeight, GuidanceSteeringHUD.UV.RECEIVER)
 
     self.stateBox:addChild(self.receiverIcon)
     self.receiverIcon:setColor(unpack(GuidanceSteeringHUD.COLOR.INACTIVE))
@@ -81,10 +83,10 @@ function GuidanceSteeringHUD:createBox(hudAtlasPath, x, y)
 
     y = y + iconHeight
 
-    separator = self:createHorizontalSeparator(g_baseHUDFilename, posX, y)
-    self.stateBox:addChild(separator)
+    --separator = self:createHorizontalSeparator(g_baseHUDFilename, posX + shiftDefHudX, y + shiftDefHudY)
+    --self.stateBox:addChild(separator)
 
-    self.laneIcon = self:createIcon(hudAtlasPath, posX, y, iconWidth, iconHeight, GuidanceSteeringHUD.UV.LANE)
+    self.laneIcon = self:createIcon(hudAtlasPath, posX + shiftDefHudX, y + shiftDefHudY, iconWidth, iconHeight, GuidanceSteeringHUD.UV.LANE)
 
     self.stateBox:addChild(self.laneIcon)
     self.laneIcon:setVisible(true)
@@ -119,17 +121,20 @@ function GuidanceSteeringHUD:storeScaledValues()
         return
     end
 
+    local shiftDefHudY = 0.016
+    local shiftDefHudX = 0.003
+
     local boxPosX, boxPosY = self.stateBox:getPosition()
     local boxWidth, boxHeight = self.stateBox:getWidth(), self.stateBox:getHeight()
     local textOffX, textOffY = self.speedMeterDisplay:scalePixelToScreenVector(GuidanceSteeringHUD.POSITION.LANE_TEXT)
 
-    self.laneTextPositionX = boxPosX + boxWidth + textOffX
-    self.laneTextPositionY = boxPosY + boxHeight + textOffY
+    self.laneTextPositionX = boxPosX + boxWidth + textOffX + shiftDefHudX
+    self.laneTextPositionY = boxPosY + boxHeight + textOffY + shiftDefHudY
     self.laneTextSize = self.speedMeterDisplay:scalePixelToScreenHeight(GuidanceSteeringHUD.TEXT_SIZE.LANE)
 
     textOffX, textOffY = self.speedMeterDisplay:scalePixelToScreenVector(GuidanceSteeringHUD.POSITION.ANGLE_TEXT)
-    self.angleTextPositionX = boxPosX + boxWidth + textOffX
-    self.angleTextPositionY = boxPosY + textOffY
+    self.angleTextPositionX = boxPosX + boxWidth + textOffX + shiftDefHudX
+    self.angleTextPositionY = boxPosY + textOffY + shiftDefHudY
     self.angleTextSize = self.speedMeterDisplay:scalePixelToScreenHeight(GuidanceSteeringHUD.TEXT_SIZE.ANGLE)
 end
 
@@ -173,7 +178,7 @@ function GuidanceSteeringHUD:drawText()
         end
 
         self:drawLaneText()
-        self:drawDirectionAngleText(spec.guidanceNode)
+        --self:drawDirectionAngleText(spec.guidanceNode)
 
         setTextBold(false)
         setTextAlignment(RenderText.ALIGN_LEFT)
